@@ -30,14 +30,14 @@ P = 9; следува: CC = 9 + 1 = 10
 Тест случајот: items = {["SomeItem", #!%&@, 350, 1.2]}, payment = anything ; го опфаќа случајот кога имаме недозволени карактери како вредност на баркодот. Во овој случај треба да биде фрлен исклучок.
 
 ### Тест случаи според критериумот Multiple Condition
-![MultipleCondition](https://github.com/goce-damnjanovski/SI_2024_lab2_203155/assets/25536314/1e020584-d3bd-4894-ac9a-72898fbbd232)
+![MultipleCondition](https://github.com/goce-damnjanovski/SI_2024_lab2_203155/assets/25536314/bfc8c945-d87d-4694-be10-44ed920e21a2)
 
 Со Multiple Condition го тестираме условот (item.getPrice() > 300 && item.getDiscount() > 0 && item.getBarcode().charAt(0) == '0'). Со тестирање ги имаме опфатено следниве случаи:
 1. ТТТ: сите три подуслови треба да бидат точни односно item.getPrice() > 300, item.getDiscount() > 0, item.getBarcode().charAt(0) == '0' треба да вратат TRUE. Тоа го добиваме со случајот:
-item = ["SomeItem", 500, 0123, 1.2], каде item.getPrice() = 500, item.getDiscount() = 1.2, item.getBarcode().charAt(0) = '0'.
+item = ["SomeItem", 0123, 500, 1.2], каде item.getPrice() = 500, item.getDiscount() = 1.2, item.getBarcode().charAt(0) = '0'.
 2. ТТF: првите два подуслови треба да бидат точни, а третиот да не е точен односно item.getPrice() > 300, item.getDiscount() > 0 треба да вратат TRUE, а item.getBarcode().charAt(0) == '0' треба да врати FALSE.
-Тоа го добиваме со случајот: item = ["SomeItem", 500, 1234, 1.2], каде item.getPrice() = 500, item.getDiscount() = 1.2, item.getBarcode().charAt(0) = '1'.
+Тоа го добиваме со случајот: item = ["SomeItem", 1234, 500, 1.2], каде item.getPrice() = 500, item.getDiscount() = 1.2, item.getBarcode().charAt(0) = '1'.
 3. ТFX: првиот подуслов треба да биде точен, вториот да не е точен и вредноста на третиот не е важна за условот односно item.getPrice() > 300 треба да врати TRUE, item.getDiscount() > 0 треба да врати FALSE.
-Тоа го добиваме со случајот: item = ["SomeItem", 500, 0123, 0], каде item.getPrice() = 500, item.getDiscount() = 0.
+Тоа го добиваме со случајот: item = ["SomeItem", 0123, 500, 0], каде item.getPrice() = 500, item.getDiscount() = 0.
 4. FXX: првиот подуслов треба да да не е точен, а вредноста на вториот и третиот не е важна за условот односно item.getPrice() > 300 треба да врати FALSE.
-Тоа го добиваме со случајот: item = ["SomeItem", 200, 0123, 1.2], каде item.getPrice() = 200.
+Тоа го добиваме со случајот: item = ["SomeItem", 0123, 200, 1.2], каде item.getPrice() = 200.
